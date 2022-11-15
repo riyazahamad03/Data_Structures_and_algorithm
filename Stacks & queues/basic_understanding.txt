@@ -1,0 +1,6 @@
+Stacks can be implemented using arrays 
+
+
+
+
+whereas queues cannot be implemented using arrays because if we need to deque the element from the list of element then we need to unshift the index at each location whereas in linked list there contains and head and tail pointer so that deletion or dequeue from the queue is pretty much easy to do for .. 

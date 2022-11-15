@@ -1,0 +1,10 @@
+JS ArrayDs : 
+
+push : at the end insertion O(1)
+
+pop : at the end deletion   O(1)
+
+unshift : at the beginning insertion O(n) -- beacause add at the beginning will cause the entire array to shift its position 
+
+splice : at the middle insertion o(n/2) -- o(n) --- same as unshift 
+

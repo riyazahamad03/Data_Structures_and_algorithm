@@ -1,0 +1,6 @@
+const collections = new Map();
+collections.set("Riyaz" , "123");
+collections.set("fuyujur",1);
+// console.log(collections);
+console.log(collections.get("Riyaz"));
+
