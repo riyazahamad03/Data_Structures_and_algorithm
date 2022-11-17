@@ -1,0 +1,51 @@
+# Definition for a binary tree node.
+class TreeNode:
+    def __init__(self, val=0, left=None, right=None):
+        self.val = val
+        self.left = left
+        self.right = right
+class Solution:
+    def buildTree(self, preorder: list[int], inorder: list[int]):
+        if not preorder or not inorder:
+            return None
+        
+        root = TreeNode(preorder[0])
+        mid = inorder.index(preorder[0])
+        
+        root.left = self.buildTree(preorder[1:mid+1],inorder[:mid])
+        root.right = self.buildTree(preorder[mid+1:],inorder[mid+1:])
+        
+        return root
+    
+    def preOrderTraversalCheckValid(self,root,res1):
+        if root!=None:
+            # print(root.val,end=" ")
+            res1.append(root.val) 
+            self.preOrderTraversalCheckValid(root.left,res1)
+            self.preOrderTraversalCheckValid(root.right,res1)
+        return res1
+    def inOrderTraversalCheckValid(self,root,res2):
+        if root!=None:
+            self.inOrderTraversalCheckValid(root.left,res2)
+            # print(root.val,end=" ")
+            res2.append(root.val)
+            self.inOrderTraversalCheckValid(root.right,res2)
+        return res2
+    
+    def Check(self,p,i,r1,r2):
+        if r1 == p and r2 == i:
+            return True
+        else:
+            return False
+        
+
+x = Solution()
+preOrder = [3,9,20,15,7]
+inOrder = [9,3,15,20,7]
+root = x.buildTree(preOrder,inOrder)
+res1,res2= [],[]
+
+x.preOrderTraversalCheckValid(root,res1)
+x.inOrderTraversalCheckValid(root,res2)
+
+print(x.Check(preOrder,inOrder,res1,res2))
