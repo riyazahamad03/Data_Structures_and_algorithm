@@ -10,14 +10,16 @@ class Solution:
     def encode(self,strs):
         res = ""
         for i in strs:
-            res += str(len(i)) + "#" + i
+            # chr(35) represent '#' symbol
+            res += str(len(i)) + chr(35) + i
         return res
     
     def decode(self,Str):
         res,p1 = [],0
         while p1 < len(Str):
             p2 = p1
-            while Str[p2] != "#":
+            # chr(35) represent '#' symbol
+            while Str[p2] != chr(35):
                 p2+=1
             l = int(Str[p1:p2])
             res.append(Str[p2+1 : p2+1+l])
