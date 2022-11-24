@@ -50,7 +50,7 @@ class UnionFindApproach2:
         res = n
         for a,b in edges:
             res -= d.UnionOperation(a,b,lst)
-        return res
+        return res 
 
 Y = UnionFindApproach2()
 print("Approach 2 : ",Y.countComponents(5,[[0, 1], [1, 2], [3, 4]]))
