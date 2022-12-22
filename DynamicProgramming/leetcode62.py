@@ -1,5 +1,5 @@
 class solution:
-    def uniquePaths(self,n:int,m:int):
+    def uniquePaths(self,m:int,n:int):
         row = [1] * n
         for _ in range(m-1):
             nRow = [1] * n
