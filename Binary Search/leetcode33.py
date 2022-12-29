@@ -1,3 +1,4 @@
+# timeComplexity = O(logn)
 class solution:
     def searchInRotatedArr(self,nums:list[int],target:int):
         low,high = 0, len(nums)-1
