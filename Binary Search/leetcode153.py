@@ -15,8 +15,10 @@ class solution:
             res = min(res,nums[mid])
 
             if nums[mid] >= nums[low]:
+                # move to right side
                 low = mid + 1
             else:
+                # move to left side
                 high = mid - 1
         return res
 x = solution()
