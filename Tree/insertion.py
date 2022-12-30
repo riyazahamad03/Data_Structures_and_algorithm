@@ -43,17 +43,17 @@ class BinSearchTree:
     def printt(self,curr_node):
         if curr_node != None:
             self.printt(curr_node.left)
-            print(str(curr_node.data))
+            print(str(curr_node.data),end=" ")
             self.printt(curr_node.right)
     def print_tree(self):
         if self.root != None:
             self.printt(self.root)
     
 bst = BinSearchTree()
-bst.insert(1)
+bst.insert(10)
 bst.insert(2)
 bst.insert(3)
-bst.insert(10)
+bst.insert(20)
 bst.insert(5)
 bst.insert(22)
 bst.insert(25)
