@@ -1,7 +1,7 @@
 class solution:
     def search2D(self,matrix:list[list[int]],target:int):
         rows,cols = len(matrix),len(matrix[0])
-        # finding the target row
+        # binary search for finding the target row
         top,bottom = 0,rows-1
         while top <= bottom:
             row = (top + bottom)//2
@@ -28,3 +28,4 @@ class solution:
         return True
 x = solution()
 print(x.search2D([[1,3,5,7],[10,11,16,20],[23,30,34,60]],121))
+# timeComplexity - O(logm * logn)
