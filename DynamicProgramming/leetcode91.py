@@ -16,4 +16,4 @@ class solution:
 
 
 x = solution()
-print(x.decodeWays("12"))
+print(x.decodeWays("12134"))
