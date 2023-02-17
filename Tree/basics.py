@@ -8,6 +8,7 @@ class BinaryTree:
         self.root = None
     def insert(self,data):
         newNode = Node(data)
+
         if (self.root == None):
             self.root = newNode
         else:
@@ -15,13 +16,13 @@ class BinaryTree:
             while True:
                 if (data < currNode.data):
                     if(currNode.left == None):
-                        currNode.left = data
+                        currNode.left = newNode
                         return
                     else:
                         currNode = currNode.left
                 elif(data > currNode.data):
                     if(currNode.right == None):
-                        currNode.right = data
+                        currNode.right = newNode
                         return
                     else:
                         currNode = currNode.right
@@ -39,5 +40,9 @@ class BinaryTree:
 
 bst = BinaryTree()
 bst.insert(10)
-print(bst.checkExist(10))
+bst.insert(20)
+bst.insert(30)
+bst.insert(40)
+
+print(bst.checkExist(50))
                 
