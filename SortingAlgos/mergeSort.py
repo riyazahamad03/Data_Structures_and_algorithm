@@ -5,13 +5,9 @@ def mergeSort(lst):
         mid = len(lst)//2
         left = lst[:mid]
         right = lst[mid:]
-        # print('left' , left )
-        # print('right' , right)
         mergeSort(left)
         mergeSort(right)
-        i=0
-        j=0
-        k=0
+        i,j,k =0,0,0
         while(i < len(left) and j< len(right)):
             if left[i] < right[j]:
                 lst[k] = left[i]
@@ -28,6 +24,9 @@ def mergeSort(lst):
             lst[k] = right[j]
             j+=1
             k+=1
+        print(lst)
+        # print("left", left)
+        # print("right",right)
     return lst
 lst = [99,44,36,76,12,34,41,5,5]
 x = mergeSort(lst)
