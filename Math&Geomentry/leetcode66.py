@@ -13,6 +13,7 @@ class solution:
             else:
                 dig.append(1)
                 f = False
+            i += 1
         return dig[::-1]
 x = solution()
 print(x.plusOne([1,2,3]))
