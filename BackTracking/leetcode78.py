@@ -7,7 +7,9 @@ class solution:
                 res.append(sub.copy())
                 return
             sub.append(nums[i])
+            # recursively on left subSet
             dfs(i + 1)
+            # recursively on right subSet
             sub.pop()
             dfs(i + 1)
         dfs(0)
