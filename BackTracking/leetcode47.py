@@ -4,12 +4,12 @@ class solution:
         permutations = []
         c = { n : 0 for n in nums}
 
-        for n in nums:
+        for n in nums: 
             c[n] += 1
         
         def dfs():
             if len(permutations) == len(nums):
-                result.append(permutations.copy())
+                result.append(permutations[:])
                 return
 
             for n in c:
