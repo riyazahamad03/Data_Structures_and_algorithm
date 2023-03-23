@@ -36,7 +36,7 @@ class numberOfProvinces:
         lst = [i for i in range(n)]
         res = n
         for i in range(n):
-            for j in range(i,n):
+            for j in range(n):
                 if isConnected[i][j] == 1 and  dsu.Union(i,j,lst) :
                     res-=1
         return res
