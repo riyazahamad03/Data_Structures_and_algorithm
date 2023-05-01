@@ -8,7 +8,7 @@ class solution:
             resVal = powX(x , n//2)
             resVal = resVal * resVal
             return x * resVal if n%2 else resVal
-        res = powX(x , n)
+        res = powX(x , abs(n))
         return res if n>=0 else 1/res
 x = solution()
 print(x.myPow(2.00000 , 10))
