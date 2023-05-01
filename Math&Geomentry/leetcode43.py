@@ -1,7 +1,8 @@
 class solution:
     def multiply(self, str1: str, str2: str):
+        if str1 == "0" or str2 == "0":
+            return "0"
         res = [0] * (len(str1) + len(str2))
-        print(res)
         str1,str2 = str1[::-1],str2[::-1]
         for idx in range(len(str1)):
             for jdx in range(len(str2)):
