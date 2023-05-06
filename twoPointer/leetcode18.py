@@ -10,7 +10,6 @@ class Solution:
                     if i>start and nums[i]==nums[i-1]:
                         continue
                     quad.append(nums[i])
-                    # kSum(k-1,i+1,target-nums[i])
                     kSum(k-1,i+1)
                     quad.pop()
                 return
