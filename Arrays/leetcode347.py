@@ -23,6 +23,7 @@ class solution:
                     return res
 x = solution()
 print(x.topKfrequent([1,1,1,2,2,3], 2))
-            
+
+# Approach Bucket Sort
 # time complexity O(N)
 # space complexity O(2N)
