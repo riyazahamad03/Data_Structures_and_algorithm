@@ -15,21 +15,21 @@ Output: 2
 
 '''
 
+
 class numberOfProvinces:
-    def Union(self,x,y,lst):
-        parentX = self.findParent(x,lst)
-        parentY = self.findParent(y,lst) 
+    def Union(self, x, y, lst):
+        parentX = self.findParent(x, lst)
+        parentY = self.findParent(y, lst)
         if parentX == parentY:
             return False
         lst[parentX] = parentY
         return True
-    
-    def findParent(self,x,lst):
+
+    def findParent(self, x, lst):
         if x != lst[x]:
-            lst[x] = self.findParent(lst[x],lst)
+            lst[x] = self.findParent(lst[x], lst)
         return lst[x]
 
-    
     def findCircleNum(self, isConnected: list[list[int]]) -> int:
         dsu = numberOfProvinces()
         n = len(isConnected)
@@ -37,11 +37,44 @@ class numberOfProvinces:
         res = n
         for i in range(n):
             for j in range(n):
-                if isConnected[i][j] == 1 and  dsu.Union(i,j,lst):
-                    res-=1
+                if isConnected[i][j] == 1 and dsu.Union(i, j, lst):
+                    res -= 1
         return res
+
+
 X = numberOfProvinces()
+print(X.findCircleNum([[1, 1, 0], [1, 1, 0], [0, 0, 1]]))
 
-print(X.findCircleNum([[1,1,0],[1,1,0],[0,0,1]]))
+class Solution:
+    def findCircleNum(self, isConnected: list[list[int]]) -> int:
+        par = [i for i in range(len(isConnected))]
+        rank = [1] * len(isConnected)
 
+        def findPar(n):
+            res = n
+            while res != par[res]:
+                par[res] = par[par[res]]
+                res = par[res]
+            return res
+
+        def union(x, y):
+            xPar, yPar = findPar(x), findPar(y)
+            if xPar == yPar:
+                return False
+            if rank[xPar] > rank[yPar]:
+                par[xPar] = yPar
+                rank[xPar] += rank[yPar]
+            else:
+                par[yPar] = xPar
+                rank[yPar] += rank[xPar]
+            return True
+        ans = len(isConnected)
+        for i in range(len(isConnected)):
+            for j in range(len(isConnected)):
+                if isConnected[i][j] == 1 and union(i, j):
+                    ans -= 1
+        return ans
+
+X = numberOfProvinces()
+print(X.findCircleNum([[1, 1, 0], [1, 1, 0], [0, 0, 1]]))
 
