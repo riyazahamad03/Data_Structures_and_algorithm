@@ -35,13 +35,13 @@ class Tree:
 
 class Solution:
     def widthOfBinaryTree(self, root: TreeNode) -> int:
-        res , q = 0 ,collections.deque()
+        res, q = 0, collections.deque()
         q.append([root, 0])
         while q:
             qLen, lMin, rMax = len(q), float('inf'), float('-inf')
             for _ in range(qLen):
                 node, num = q.popleft()
-                lMin , rMax = min(lMin , num) , max(rMax , num)
+                lMin, rMax = min(lMin, num), max(rMax, num)
                 if node.left:
                     q.append([node.left, num * 2])
                 if node.right:
