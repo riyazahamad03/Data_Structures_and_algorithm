@@ -1,6 +1,7 @@
 class solution:
-    def eventualSafeNodes(self , graph : list[list[int]]):
+    def eventualSafeNodes(self, graph: list[list[int]]):
         safeState = {}
+
         def dfs(i):
             if i in safeState:
                 return safeState[i]
@@ -15,5 +16,8 @@ class solution:
             if dfs(i):
                 res.append(i)
         return res
+
+
 x = solution()
-print(x.eventualSafeNodes([[1,2],[2,3],[5],[0],[5],[],[]]))
+print(x.eventualSafeNodes(graph=[[1, 2], [2, 3], [5], [0], [5], [], []]))
+print(x.eventualSafeNodes(graph=[[1, 2, 3, 4], [1, 2], [3, 4], [0, 4], []]))
