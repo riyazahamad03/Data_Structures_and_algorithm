@@ -14,4 +14,5 @@ class solution:
 
 
 x = solution()
+print(x.maxRunTime(n=2, batteries=[1, 1, 1, 1]))
 print(x.maxRunTime(n=2, batteries=[3, 3, 3]))
