@@ -17,4 +17,5 @@ class Solution:
             i-=1
         return res
 x = Solution()
+
 print(x.lengthOfLastWord1('   fly me   to   the moon  '))
