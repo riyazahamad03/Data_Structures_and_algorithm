@@ -10,40 +10,42 @@ class Tree:
         self.root = None
 
     def insert(self, data):
-
         newNode = TreeNode(data)
-        if (self.root == None):
+        if self.root == None:
             self.root = newNode
         else:
             currNode = self.root
             while True:
-                if (data < currNode.val):
-                    if (currNode.left == None):
+                if data < currNode.val:
+                    if currNode.left == None:
                         currNode.left = newNode
                         return
                     else:
                         currNode = currNode.left
-                elif (data > currNode.val):
-                    if (currNode.right == None):
+                elif data > currNode.val:
+                    if currNode.right == None:
                         currNode.right = newNode
                         return
                     else:
                         currNode = currNode.right
 
+
 class Solution:
-    def diametreOfBinTree(self , root:TreeNode):
-        res = float('-inf')
+    def diametreOfBinTree(self, root: TreeNode):
+        res = float("-inf")
+
         def dfs(node):
             nonlocal res
             if not node:
                 return 0
             l = dfs(node.left)
             r = dfs(node.right)
-            res = max(res , l + r)
-            return 1 + max(l , r)
+            res = max(res, l + r)
+            return 1 + max(l, r)
+
         dfs(root)
         return res
-    
+
 
 root = Tree()
 root.insert(1)
