@@ -1,0 +1,39 @@
+from typing import List
+
+
+class Solution:
+    def minDays(self, bloomDay: List[int], m: int, k: int) -> int:
+        if m * k > len(bloomDay):
+            return -1
+
+        def check(day):
+            bouquets = 0
+            flowers = 0
+            for bloom in bloomDay:
+                if bloom <= day:
+                    flowers += 1
+                    if flowers == k:
+                        bouquets += 1
+                        flowers = 0
+                else:
+                    flowers = 0
+                if bouquets >= m:
+                    return True
+            return False
+
+        low, high = 1, max(bloomDay)
+        minDays = -1
+
+        while low <= high:
+            mid = (low + high) // 2
+            if check(mid):
+                minDays = mid
+                high = mid - 1
+            else:
+                low = mid + 1
+
+        return minDays
+
+
+x = Solution()
+print(x.minDays(bloomDay=[1, 10, 3, 10, 2], m=3, k=1))
